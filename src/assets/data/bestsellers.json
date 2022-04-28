@@ -1,0 +1,40 @@
+{
+  "products": [
+    {
+      "id": 0,
+      "name": "Lorem ipsum",
+      "slug": "lorem-ipsum",
+      "author": "Adam Mickiewicz",
+      "price": 39.99,
+      "categoryId": 2,
+      "photo": "/assets/photos/na-skraju-strefy.png"
+    },
+    {
+      "id": 1,
+      "name": "Lorem ipsum",
+      "slug": "lorem-ipsum",
+      "author": "Adam Mickiewicz",
+      "price": 39.99,
+      "categoryId": 2,
+      "photo": "/assets/photos/na-skraju-strefy.png"
+    },
+    {
+      "id": 2,
+      "name": "Lorem ipsum",
+      "slug": "lorem-ipsum",
+      "author": "Adam Mickiewicz",
+      "price": 39.99,
+      "categoryId": 2,
+      "photo": "/assets/photos/na-skraju-strefy.png"
+    },
+    {
+      "id": 3,
+      "name": "Lorem ipsum",
+      "slug": "lorem-ipsum",
+      "author": "Adam Mickiewicz",
+      "price": 39.99,
+      "categoryId": 2,
+      "photo": "/assets/photos/na-skraju-strefy.png"
+    }
+  ]
+}

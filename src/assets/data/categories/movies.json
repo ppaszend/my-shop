@@ -1,0 +1,16 @@
+{
+  "name": "movies",
+  "pages": {
+    "0": [
+      {
+        "id": 0,
+        "name": "Lorem ipsum",
+        "slug": "lorem-ipsum",
+        "author": "Adam Mickiewicz",
+        "price": 39.99,
+        "categoryId": 2,
+        "photo": "/assets/photos/na-skraju-strefy.png"
+      }
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "categories": [
+    {
+      "id": 0,
+      "name": "Books",
+      "slug": "books",
+      "icon": "books.svg",
+      "productsAmount": 23
+    },
+    {
+      "id": 1,
+      "name": "Movies",
+      "slug": "movies",
+      "icon": "movies.svg",
+      "productsAmount": 31
+    },
+    {
+      "id": 2,
+      "name": "Games",
+      "slug": "games",
+      "icon": "games.svg",
+      "productsAmount": 9
+    },
+    {
+      "id": 3,
+      "name": "Newspapers",
+      "slug": "newspapers",
+      "icon": "newspapers.svg",
+      "productsAmount": 88
+    },
+    {
+      "id": 4,
+      "name": "Toys",
+      "slug": "toys",
+      "icon": "toys.svg",
+      "productsAmount": 236
+    },
+    {
+      "id": 5,
+      "name": "Electronics",
+      "slug": "electronics",
+      "icon": "electronics.svg",
+      "productsAmount": 47
+    }
+  ]
+}

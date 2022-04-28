@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-gray: #546E7A;
+  --color-red: #F44336;
+  --color-green: #81C784;
+  --color-blue: #42A5F5;
+  --color-dark-gray: #212020;
+  --color-light-gray: #EEEEEE;
+  --color-gray-blue: #607D8B;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #EEEEEE;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// colors
+//$color-white: #FFFFFF;
+
