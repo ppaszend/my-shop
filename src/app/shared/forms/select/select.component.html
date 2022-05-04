@@ -1,0 +1,9 @@
+<div class="select" [class.expanded]="expanded" [class.directionUp]="direction === 'up'">
+  <div class="optionsOverlay" (click)="expanded = false"></div>
+  <div class="selectedOption" (click)="expanded = true">
+    {{selectedOption?.name}} <mat-icon>arrow_drop_down</mat-icon>
+  </div>
+  <div class="selectOptions" [class.directionUp]="direction === 'up'">
+    <div *ngFor="let option of options" class="option" (click)="setValue(option); expanded = false">{{option.name}}</div>
+  </div>
+</div>

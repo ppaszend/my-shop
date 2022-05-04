@@ -1,0 +1,10 @@
+<div class="segmentedOption">
+  <div *ngFor="let option of options"
+       class="option"
+       [class.selected]="option.value === value"
+       (click)="setValue(option.value)"
+  >
+    <mat-icon *ngIf="option.icon">{{option.icon}}</mat-icon>
+    <span *ngIf="!option.icon">{{option?.label}}</span>
+  </div>
+</div>

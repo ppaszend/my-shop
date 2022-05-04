@@ -1,0 +1,15 @@
+<div class="productsList">
+  <div *ngFor="let product of products" class="product">
+    <div class="productPhoto">
+      <img [src]="product.photo" alt="">
+    </div>
+    <div class="productContent">
+      <div class="productName">{{product.name}}</div>
+      <div class="productPrice">{{product.author}}</div>
+      <app-button icon="add_shopping_cart"
+                  color="green"
+                  (click)="addProductToCart(product)">
+        {{product.price|currency:'EUR'}}</app-button>
+    </div>
+  </div>
+</div>

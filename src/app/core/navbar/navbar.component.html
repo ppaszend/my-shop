@@ -1,0 +1,17 @@
+<nav class="navbar">
+  <div class="navbarContainer">
+    <button class="button">
+      <mat-icon (click)="openNavigationDrawer()">menu</mat-icon>
+    </button>
+    <a routerLink="/" class="logo">My Shop</a>
+  </div>
+  <div class="navbarContainer">
+    <button class="button">
+      <mat-icon>search</mat-icon>
+    </button>
+    <a routerLink="/shopping-cart" class="button">
+      <mat-icon>shopping_cart</mat-icon>
+      <span class="buttonIndicator">{{productInCartAmount}}</span>
+    </a>
+  </div>
+</nav>

@@ -1,0 +1,13 @@
+<div class="shoppingCart">
+  <div>Your Cart</div>
+
+  <app-products-list
+    [products]="products"
+    (removeProductEvent)="removeProduct($event)"
+    (changeProductQuantityEvent)="changeProductQuantity($event.itemId, $event.quantity)"
+  ></app-products-list>
+
+  <div *ngIf="products.length === 0">
+    Your Cart Is Empty
+  </div>
+</div>

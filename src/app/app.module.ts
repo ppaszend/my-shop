@@ -12,6 +12,7 @@ import {ShoppingCartModule} from "./pages/shopping-cart/shopping-cart.module";
 import {SharedModule} from "./shared/shared.module";
 import {CategoryModule} from "./pages/category/category.module";
 import {CoreModule} from "./core/core.module";
+import {ProductModule} from "./pages/product/product.module";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {CoreModule} from "./core/core.module";
     // routes
     HomeModule,
     ShoppingCartModule,
-    CategoryModule
+    CategoryModule,
+    ProductModule
   ],
   providers: [
     CategoriesService,

@@ -1,0 +1,25 @@
+<div class="productsList">
+  <div *ngFor="let item of products" class="product">
+    <div class="productPhoto">
+      <img [src]="item.product.photo" alt="">
+    </div>
+    <div class="productContent">
+      <div class="productName">{{item.product.name}}</div>
+      <div class="productPrice">{{item.product.price}} zł</div>
+      <div class="productNavigator">
+        <div class="productQuantity">
+          <app-select
+            generateMethod="numbers"
+            [generateMin]="1"
+            [generateMax]="9"
+            [value]="item.quantity"
+            (changeEvent)="changeProductQuantity(item.id, $event)"
+          ></app-select>
+        </div>
+        <button class="buttonRemove" (click)="removeProduct(item.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="categoryViewSettings">
+  <app-segmented-control
+    [options]="[{label: 'Grid', value: 'grid', icon: 'grid_view'}, {label: 'List', value: 'list', icon: 'list'}]"
+    [value]="viewMode"
+    (change)="viewMode = $event"
+  ></app-segmented-control>
+</div>
+<app-products-list *ngIf="viewMode === 'list'" [products]="products"></app-products-list>
+<app-products-grid *ngIf="viewMode === 'grid'" [products]="products" ></app-products-grid>

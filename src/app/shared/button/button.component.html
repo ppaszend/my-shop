@@ -1,0 +1,8 @@
+<button class="button"
+        [class.blue]="color === 'blue'"
+        [class.green]="color === 'green'"
+        [style]="styles"
+>
+  <ng-content></ng-content>
+  <mat-icon *ngIf="icon">{{icon}}</mat-icon>
+</button>

@@ -1,0 +1,14 @@
+<div class="categoriesList">
+  <div class="categoriesListInner"
+       [class.expandable]="expandable"
+       [ngStyle]="{height: (((!expandable || expanded) ? categories.length : 3) * 44) - 20 + 'px'}">
+    <a *ngFor="let category of categories" class="category" [routerLink]="['/category/', category.slug]">
+      <div class="categoryIcon">
+        <img [src]="'/assets/icons/' + category.icon" alt="">
+      </div>
+      <span class="categoryName">{{category.name}} <small>({{category.productsAmount}} products)</small></span>
+    </a>
+  </div>
+  <app-button *ngIf="expandable"
+              (click)="toggleExpand()">Show All Categories ({{categories.length}})</app-button>
+</div>

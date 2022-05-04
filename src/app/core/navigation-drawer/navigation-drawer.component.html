@@ -1,0 +1,13 @@
+<div class="navigationDrawerOverlay" [class.hidden]="!visibility" (click)="close()"></div>
+
+<div class="navigationDrawer" [class.hidden]="!visibility">
+  <div class="header">
+    <div class="headerTitle">Company name</div>
+    <div class="headerButtons">
+      <button class="button" (click)="close()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+  <app-categories-list [expandable]="false"></app-categories-list>
+</div>

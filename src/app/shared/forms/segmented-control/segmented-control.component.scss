@@ -1,0 +1,21 @@
+.segmentedOption {
+  display: flex;
+  width: min-content;
+  margin: 8px 4px;
+  border-radius: 8px;
+  overflow: hidden;
+
+  .option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    padding: 0 12px;
+    background: var(--color-white);
+
+    &.selected {
+      background: var(--color-gray-blue);
+      color: var(--color-white);
+    }
+  }
+}

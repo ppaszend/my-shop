@@ -1,0 +1,21 @@
+<div class="product">
+  <div class="productName">
+    {{product.name}}
+  </div>
+  <div class="productPhoto">
+    <img [src]="product.photo" [alt]="product.name">
+  </div>
+  <div class="productDescription">
+    <div class="descriptionTitle">Opis</div>
+    <div class="descriptionContent">
+      {{ product.description|showAsP }}
+    </div>
+  </div>
+</div>
+
+<div class="productNavigator">
+  <app-select generateMethod="numbers" [generateMin]="1" [generateMax]="9" direction="up"></app-select>
+  <app-button color="green"
+              [styles]="{height: '48px', margin: '0', padding: '0 32px'}"
+  >{{product.price|currency:'EUR'}} <mat-icon>shopping_cart</mat-icon></app-button>
+</div>
