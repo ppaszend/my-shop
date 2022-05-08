@@ -1,0 +1,43 @@
+<h2 class="formSectionName">Recipient's details</h2>
+<form class="createOrderContainer whiteBackground" [formGroup]="orderForm">
+  <form-text-input formControlName="fullName"
+                   label="Full Name"></form-text-input>
+
+  <form-text-input formControlName="streetAndHouseName"
+                   label="Street And House Number"></form-text-input>
+
+  <form-text-input formControlName="zipCode"
+                   label="ZIP code"></form-text-input>
+
+  <form-text-input formControlName="city"
+                   label="City"></form-text-input>
+
+  <form-text-input formControlName="emailAddress"
+                   label="E-mail Address"></form-text-input>
+
+  <form-text-input formControlName="phoneNumber"
+                   label="Phone Number"></form-text-input>
+
+  <form-checkbox-input formControlName="invoice"
+                       label="I want to add other details or need an invoice for the company"></form-checkbox-input>
+</form>
+
+<h2 class="formSectionName">Choose Delivery Method</h2>
+<form class="createOrderContainer" [formGroup]="orderForm">
+  <form-delivery-method formControlName="deliveryMethod"
+                        [options]="deliveryMethods"></form-delivery-method>
+</form>
+
+<h2 class="formSectionName">Choose Payment Method</h2>
+<form class="createOrderContainer" [formGroup]="orderForm">
+  <form-payment-method formControlName="paymentMethod" [options]="paymentMethods"></form-payment-method>
+</form>
+
+<app-button color="green" [styles]="{height: '48px'}" (click)="sendForm()">Make An Order</app-button>
+
+<app-dialog icon="error" title="There Was An Error During Payment" [show]="error">
+  <div class="errorDialogContent">The card number is incorrect.</div>
+  <app-button color="gray" [styles]="{height: '48px'}" (click)="hideErrorModal()">Close</app-button>
+</app-dialog>
+
+<!--<pre>{{orderForm.value|json}}</pre>-->

@@ -11,6 +11,10 @@
     border-radius: 16px;
     padding: 20px;
 
+    a {
+      text-decoration: none;
+    }
+
     .productPhoto {
       height: 100%;
       width: 64px;
@@ -31,11 +35,17 @@
       .productName {
         font-size: 1.125em;
         font-weight: 500;
+        color: var(--color-black);
       }
 
       .productPrice {
         font-size: 1em;
         color: var(--color-gray);
+      }
+
+      .productAuthor {
+        color: var(--color-gray);
+        font-size: 0.825em;
       }
 
       .productNavigator {

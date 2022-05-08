@@ -1,11 +1,15 @@
 <div class="productsList">
   <div *ngFor="let product of products" class="product">
-    <div class="productPhoto">
-      <img [src]="product.photo" alt="">
-    </div>
+    <a [routerLink]="['/product/', product.slug]">
+      <div class="productPhoto">
+        <img [src]="product.photo" alt="">
+      </div>
+    </a>
     <div class="productContent">
-      <div class="productName">{{product.name}}</div>
-      <div class="productPrice">{{product.author}}</div>
+      <a [routerLink]="['/product/', product.slug]">
+        <div class="productName">{{product.name}}</div>
+        <div class="productAuthor">{{product.author}}</div>
+      </a>
       <app-button icon="add_shopping_cart"
                   color="green"
                   (click)="addProductToCart(product)">

@@ -1,6 +1,9 @@
+$select-height: 36px;
+
 .select {
   position: relative;
   color: var(--color-gray);
+  height: $select-height;
 
   .selectedOption {
     display: flex;
@@ -8,9 +11,9 @@
     align-items: center;
     padding: 0 12px;
     width: 60px;
-    height: 36px;
+    height: $select-height;
     border: 1px solid var(--color-gray);
-    border-radius: 18px;
+    border-radius: #{$select-height / 2};
     z-index: 100;
     position: absolute;
   }
@@ -29,17 +32,17 @@
     flex-direction: column;
     position: absolute;
     left: 0;
-    top: 36px;
+    top: $select-height;
     width: 60px;
     background: var(--color-white);
     border-left: 1px solid var(--color-gray);
     border-right: 1px solid var(--color-gray);
     border-bottom: 1px solid var(--color-gray);
     z-index: 10000;
-    border-radius: 0 0 18px 18px;
+    border-radius: 0 0 #{$select-height / 2} #{$select-height / 2};
 
     &.directionUp {
-      bottom: 0;
+      bottom: $select-height;
       top: auto;
     }
 
@@ -61,6 +64,7 @@
 
     .selectOptions {
       display: flex;
+      flex-direction: column-reverse;
     }
 
     .optionsOverlay {
@@ -71,7 +75,7 @@
   &.directionUp {
 
     .selectOptions {
-      border-radius: 18px 18px 0 0;
+      border-radius: #{$select-height / 2} #{$select-height / 2} 0 0;
       border-top: 1px solid var(--color-gray);
       border-bottom: none;
     }
@@ -80,7 +84,7 @@
       .selectedOption {
         border-top: 0;
         border-bottom: 1px solid var(--color-gray);
-        border-radius: 0 0 18px 18px;
+        border-radius: 0 0 #{$select-height / 2} #{$select-height / 2};
       }
     }
   }

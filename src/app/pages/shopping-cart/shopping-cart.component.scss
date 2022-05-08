@@ -61,3 +61,18 @@
     }
   }
 }
+
+.shoppingCartNavigator {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 68px;
+  background: var(--color-white);
+  z-index: 4000;
+  padding: 0 20px;
+
+  a {
+    text-decoration: none;
+  }
+}

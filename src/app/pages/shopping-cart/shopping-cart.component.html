@@ -1,13 +1,22 @@
 <div class="shoppingCart">
   <div>Your Cart</div>
 
-  <app-products-list
+  <shopping-cart-products-list
     [products]="products"
     (removeProductEvent)="removeProduct($event)"
     (changeProductQuantityEvent)="changeProductQuantity($event.itemId, $event.quantity)"
-  ></app-products-list>
+  ></shopping-cart-products-list>
 
   <div *ngIf="products.length === 0">
     Your Cart Is Empty
   </div>
+</div>
+
+<div class="shoppingCartNavigator">
+  <a [routerLink]="['/create-order']">
+    <app-button color="green" [styles]="{height: '48px', padding: '0 20px', 'justify-content': 'space-between'}">
+      Delivery & Payment (29,99 zł)
+      <mat-icon>navigate_next</mat-icon>
+    </app-button>
+  </a>
 </div>

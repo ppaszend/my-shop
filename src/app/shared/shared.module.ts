@@ -9,6 +9,7 @@ import {ProductsGridComponent} from "./products-grid/products-grid.component";
 import {MatIconModule} from "@angular/material/icon";
 import {FormsModule} from "./forms/forms.module";
 import {ShoppingCartService} from "../services/shopping-cart.service";
+import {DialogComponent} from './dialog/dialog.component';
 
 
 @NgModule({
@@ -16,12 +17,13 @@ import {ShoppingCartService} from "../services/shopping-cart.service";
     ButtonComponent,
     ProductsListComponent,
     CategoriesListComponent,
-    ProductsGridComponent
+    ProductsGridComponent,
+    DialogComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
-    MatIconModule
+    MatIconModule,
   ],
   exports: [
     // modules
@@ -32,11 +34,12 @@ import {ShoppingCartService} from "../services/shopping-cart.service";
     ButtonComponent,
     ProductsListComponent,
     CategoriesListComponent,
-    ProductsGridComponent
+    ProductsGridComponent,
+    DialogComponent,
   ],
   providers: [
     CategoriesService,
-    ShoppingCartService
+    ShoppingCartService,
   ]
 })
 export class SharedModule { }

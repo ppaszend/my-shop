@@ -1,0 +1,19 @@
+.createOrderContainer {
+  border-radius: 16px;
+  margin-bottom: 30px;
+
+  &.whiteBackground {
+    background: var(--color-white);
+    padding: 10px 20px;
+  }
+}
+
+.formSectionName {
+  font-size: 1em;
+  color: var(--color-gray);
+  margin: 10px 0;
+}
+
+.errorDialogContent {
+  margin-bottom: 30px;
+}

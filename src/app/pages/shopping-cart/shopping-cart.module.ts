@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import {ShoppingCartComponent} from "./shopping-cart.component";
 import {ShoppingCartService} from "../../services/shopping-cart.service";
 import {ProductsListModule} from "./products-list/products-list.module";
+import {SharedModule} from "../../shared/shared.module";
+import {MatIconModule} from "@angular/material/icon";
+import {RouterModule} from "@angular/router";
 
 
 
@@ -12,7 +15,10 @@ import {ProductsListModule} from "./products-list/products-list.module";
   ],
   imports: [
     CommonModule,
-    ProductsListModule
+    ProductsListModule,
+    SharedModule,
+    MatIconModule,
+    RouterModule
   ],
   providers: [
     ShoppingCartService

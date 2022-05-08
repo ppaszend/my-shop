@@ -1,0 +1,22 @@
+<div class="paymentMethodContainer">
+  <label class="paymentMethodOption" [class.active]="option.name === value" *ngFor="let option of options">
+    <input type="radio" name="paymentMethod" [value]="option.name" [(ngModel)]="value">
+    <div class="paymentMethodHeader">
+      <div class="paymentMethodName">{{option.label}}</div>
+      <div class="paymentMethodLogo">
+        <img *ngFor="let icon of option.icons" [src]="icon" alt="visa">
+      </div>
+    </div>
+    <div class="paymentMethodContent" *ngIf="option.type === 'credit-card-form' && option.name === value">
+      <form-text-input label="Card Number"></form-text-input>
+      <div class="paymentMethodContentRow">
+        <div class="paymentMethodContentColumn">
+          <form-text-input label="Expiration Date"></form-text-input>
+        </div>
+        <div class="paymentMethodContentColumn">
+          <form-text-input label="CVC"></form-text-input>
+        </div>
+      </div>
+    </div>
+  </label>
+</div>

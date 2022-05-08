@@ -1,10 +1,12 @@
 <div class="productsGrid">
   <div class="product" *ngFor="let product of products">
-    <a class="productImage" [routerLink]="['/product/', product.slug]">
-      <img [src]="product.photo" [alt]="product.name">
+    <a [routerLink]="['/product/', product.slug]">
+      <div class="productImage">
+        <img [src]="product.photo" [alt]="product.name">
+      </div>
+      <div class="productName">{{product.name}}</div>
     </a>
-    <div class="productName">{{product.name}}</div>
-    <div class="productAuthor">{{product.author}}</div>
+      <div class="productAuthor">{{product.author}}</div>
     <app-button icon="add_shopping_cart"
                 (click)="addProductToCart(product)"
                 color="green">

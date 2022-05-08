@@ -13,6 +13,7 @@ import {SharedModule} from "./shared/shared.module";
 import {CategoryModule} from "./pages/category/category.module";
 import {CoreModule} from "./core/core.module";
 import {ProductModule} from "./pages/product/product.module";
+import {CreateOrderModule} from "./pages/create-order/create-order.module";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {ProductModule} from "./pages/product/product.module";
     HomeModule,
     ShoppingCartModule,
     CategoryModule,
-    ProductModule
+    ProductModule,
+    CreateOrderModule
   ],
   providers: [
     CategoriesService,

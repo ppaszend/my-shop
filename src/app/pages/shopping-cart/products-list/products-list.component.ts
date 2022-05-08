@@ -7,7 +7,7 @@ interface ChangeProductQuantityParams {
 }
 
 @Component({
-  selector: 'app-products-list',
+  selector: 'shopping-cart-products-list',
   templateUrl: './products-list.component.html',
   styleUrls: ['./products-list.component.scss']
 })

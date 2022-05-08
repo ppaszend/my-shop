@@ -1,0 +1,47 @@
+.deliveryMethodContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+
+  .deliveryMethodOption {
+    display: flex;
+    background: var(--color-white);
+    height: 90px;
+    padding: 20px;
+    border-radius: 16px;
+    gap: 20px;
+
+    input {
+      visibility: hidden;
+      position: absolute;
+    }
+
+    &.active {
+      border: 2px solid var(--color-gray);
+      padding: 18px;
+    }
+
+    .deliveryMethodLogo {
+      width: 65px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .deliveryMethodContent {
+      display: flex;
+      flex-direction: column;
+      width: calc(100% - #{65px + 20px});
+
+      .deliveryMethodName {
+        font-size: 1em;
+        font-weight: 500;
+      }
+
+      .deliveryMethodDescription {
+        font-size: 0.75em;
+      }
+    }
+  }
+}

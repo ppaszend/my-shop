@@ -1,0 +1,14 @@
+<div class="deliveryMethodContainer">
+  <label *ngFor="let option of options"
+       class="deliveryMethodOption"
+       [class.active]="option.name === value">
+    <input type="radio" name="deliveryMethod" [value]="option.name" [(ngModel)]="value">
+    <div class="deliveryMethodLogo">
+      <img [src]="option.icon" [alt]="option.label">
+    </div>
+    <div class="deliveryMethodContent">
+      <div class="deliveryMethodName">{{option.label}}</div>
+      <div class="deliveryMethodDescription" *ngIf="option.description">{{option.description}}</div>
+    </div>
+  </label>
+</div>
