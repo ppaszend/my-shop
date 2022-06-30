@@ -10,34 +10,39 @@
   background: rgba(0, 0, 0, .2);
   backdrop-filter: blur(10px);
   z-index: 10000;
+}
 
-  .dialog {
-    width: 350px;
-    max-width: calc(100% - 40px);
-    background: var(--color-white);
-    padding: 20px;
-    border-radius: 16px;
+.dialog {
+  width: 350px;
+  max-width: calc(100% - 40px);
+  background: var(--color-white);
+  padding: 20px;
+  border-radius: 16px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100000;
 
-    .dialogIcon {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
+  .dialogIcon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 
-      .mat-icon {
-        font-size: 48px;
-        width: 48px;
-        height: 48px;
-      }
+    .mat-icon {
+      font-size: 48px;
+      width: 48px;
+      height: 48px;
     }
+  }
 
-    .dialogTitle {
-      font-size: 1.125em;
-      font-weight: 500;
-      margin-bottom: 10px;
-    }
+  .dialogTitle {
+    font-size: 1.125em;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
 
-    .dialogContent {
-      font-size: 1em;
-    }
+  .dialogContent {
+    font-size: 1em;
   }
 }

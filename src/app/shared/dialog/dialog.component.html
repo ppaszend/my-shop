@@ -1,13 +1,13 @@
-<div class="dialogOverlay" *ngIf="show">
-  <div class="dialog">
-    <div *ngIf="icon" class="dialogIcon">
-      <mat-icon *ngIf="icon === 'error'" color="warn">{{icon}}</mat-icon>
-    </div>
-    <div *ngIf="title" class="dialogTitle">
-      {{title}}
-    </div>
-    <div class="dialogContent">
-      <ng-content></ng-content>
-    </div>
+<div class="dialogOverlay" *ngIf="show" (click)="closeModal()"></div>
+
+<div class="dialog" *ngIf="show">
+  <div *ngIf="icon" class="dialogIcon">
+    <mat-icon *ngIf="icon === 'error'" color="warn">{{icon}}</mat-icon>
+  </div>
+  <div *ngIf="title" class="dialogTitle">
+    {{title}}
+  </div>
+  <div class="dialogContent">
+    <ng-content></ng-content>
   </div>
 </div>

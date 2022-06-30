@@ -13,6 +13,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 })
 export class TextInputComponent implements ControlValueAccessor {
   @Input() label: string = '';
+  @Input() touched: boolean = false;
 
   private _value: string = '';
 
@@ -26,6 +27,8 @@ export class TextInputComponent implements ControlValueAccessor {
     }
   }
 
+  state: string = '';
+
   constructor() { }
 
   onChange = (_: string) => {}
@@ -38,9 +41,17 @@ export class TextInputComponent implements ControlValueAccessor {
     this.onChange = fn;
   }
   registerOnTouched(fn: any) {
+    console.log(this.touched)
+    if (this.touched) {
+      this.state = this.validate() ? "valid" : "invalid"
+    }
     this.onTouched = fn;
   }
   setDisabledState?(isDisabled: boolean): void {
     throw new Error("Method not implemented.");
+  }
+
+  validate() {
+    return this._value !== "";
   }
 }

@@ -7,9 +7,13 @@
   background: rgba(0, 0, 0, .2);
   backdrop-filter: blur(10px);
   z-index: 8000;
+  //opacity: 1;
+  transition: background 900ms ease-in-out;
 
   &.hidden {
     display: none;
+    background: rgba(0, 0, 0, 0);
+    //opacity: 0;
   }
 }
 
@@ -23,10 +27,6 @@
   background: var(--color-light-gray);
   padding: 20px;
   z-index: 8100;
-
-  &.hidden {
-    display: none;
-  }
 
   .header {
     display: flex;

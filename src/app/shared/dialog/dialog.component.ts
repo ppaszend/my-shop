@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-dialog',
@@ -9,6 +9,7 @@ export class DialogComponent implements OnInit {
   @Input() icon: 'error'|undefined;
   @Input() title: string|undefined;
   @Input() show: boolean = false;
+  @Output() showChange = new EventEmitter<boolean>();
 
   constructor() { }
 
@@ -17,6 +18,7 @@ export class DialogComponent implements OnInit {
 
   closeModal(): void {
     this.show = false;
+    this.showChange.emit(false);
   }
 
 }

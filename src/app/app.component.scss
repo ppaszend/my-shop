@@ -5,3 +5,11 @@
   max-width: 800px;
   margin: 56px auto 0;
 }
+
+@media (min-width: 992px) {
+  .content {
+    margin-top: 132px;
+    background: var(--color-white);
+    border-radius: 16px;
+  }
+}

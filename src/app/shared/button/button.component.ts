@@ -8,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ButtonComponent implements OnInit {
   @Input() label: string|undefined;
   @Input() icon: string|undefined;
-  @Input() color: "green"|"blue"|"gray" = "blue";
+  @Input() color: "green"|"blue"|"gray"|"red" = "blue";
   @Input() styles: object = {};
 
   constructor() { }

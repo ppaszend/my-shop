@@ -1,6 +1,7 @@
 import {Component, forwardRef, Input} from '@angular/core';
 import {PaymentMethod} from "../../../models/payment-method";
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {animate, AUTO_STYLE, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
   selector: 'form-payment-method',
@@ -10,7 +11,18 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => PaymentMethodComponent),
     multi: true
-  }]
+  }],
+  animations: [
+    trigger(
+      'expandAnimation',
+      [
+        state('false', style({height: '60px'})),
+        state('true', style({height: AUTO_STYLE})),
+        transition('false => true', animate('200ms linear')),
+        transition('true => false', animate('200ms linear'))
+      ]
+    )
+  ]
 })
 export class PaymentMethodComponent implements ControlValueAccessor {
   @Input() options: PaymentMethod[] = [];

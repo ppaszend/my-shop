@@ -8,13 +8,11 @@
       <div class="productPrice">{{item.product.price}} zł</div>
       <div class="productNavigator">
         <div class="productQuantity">
-          <app-select
-            generateMethod="numbers"
-            [generateMin]="1"
-            [generateMax]="9"
-            [value]="item.quantity"
-            (changeEvent)="changeProductQuantity(item.id, $event)"
-          ></app-select>
+          <form-select generateMethod="numbers"
+                       [generateMin]="1"
+                       [generateMax]="9"
+                       [value]="item.quantity"
+                       (changeEvent)="changeProductQuantity(item.id, $event)"></form-select>
         </div>
         <button class="buttonRemove" (click)="removeProduct(item.id)">
           <mat-icon>delete</mat-icon>

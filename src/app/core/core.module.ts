@@ -7,6 +7,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {NavigationDrawerComponent} from "./navigation-drawer/navigation-drawer.component";
 import {SharedModule} from "../shared/shared.module";
 import {RouterModule} from "@angular/router";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 
@@ -17,6 +18,7 @@ import {RouterModule} from "@angular/router";
   ],
   imports: [
     CommonModule,
+    BrowserAnimationsModule,
     RouterModule,
     MatIconModule,
     SharedModule

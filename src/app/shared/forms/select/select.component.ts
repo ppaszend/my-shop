@@ -8,7 +8,7 @@ interface Option {
 type directionTypes = 'up'|'down';
 
 @Component({
-  selector: 'app-select',
+  selector: 'form-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss']
 })

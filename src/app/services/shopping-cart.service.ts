@@ -43,6 +43,7 @@ export class ShoppingCartService {
   }
 
   removeProduct(productId: number): void {
+    console.log(productId);
     this.products.next(this.products.getValue().filter(item => productId !== item.id));
     this.saveProductsInLocalStorage();
   }

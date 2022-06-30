@@ -18,6 +18,7 @@ export class ProductsListComponent implements OnInit {
   @Output() changeProductQuantityEvent: EventEmitter<ChangeProductQuantityParams> = new EventEmitter<ChangeProductQuantityParams>();
 
   removeProduct(productId: number): void {
+    console.log('rr')
     this.removeProductEvent.emit(productId);
   }
 

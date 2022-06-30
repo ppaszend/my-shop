@@ -13,6 +13,7 @@ export class ShoppingCartComponent implements OnInit {
   constructor(private shoppingCartService: ShoppingCartService) { }
 
   removeProduct(productId: number): void {
+    console.log('rem')
     this.shoppingCartService.removeProduct(productId);
   }
 

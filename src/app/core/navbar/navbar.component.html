@@ -1,4 +1,4 @@
-<nav class="navbar">
+<nav class="navbar" *ngIf="isMobile">
   <div class="navbarContainer">
     <button class="button">
       <mat-icon (click)="openNavigationDrawer()">menu</mat-icon>
@@ -15,3 +15,78 @@
     </a>
   </div>
 </nav>
+
+<nav class="navbarDesktop" *ngIf="!isMobile">
+  <div class="navbarTop">
+    <div class="left">
+      <a routerLink="/" class="logo">My Shop</a>
+    </div>
+    <div class="right">
+      <div class="navbarSearch">
+        <input type="search" placeholder="Search...">
+        <mat-icon>search</mat-icon>
+      </div>
+      <button class="navbarLocaleSettings" (click)="openCurrencyDialog()">
+        <mat-icon>language</mat-icon>English (USD $)
+      </button>
+      <div class="navbarShoppingCart"
+           [ngClass]="{'active': shoppingCartActive}"
+           (mouseenter)="shoppingCartActive = true"
+           (mouseleave)="shoppingCartActive = false">
+        <a routerLink="/shopping-cart"
+           class="mainContent"
+           (click)="shoppingCartActive = false"
+           [@shoppingCartFocusMain]="shoppingCartActive">
+          <mat-icon>shopping_cart</mat-icon>
+          Shopping Cart (€33.99)
+        </a>
+        <div class="activeContent" [@shoppingCartFocusActive]="shoppingCartActive">
+          <div *ngFor="let item of shoppingCartProducts"
+               class="navbarShoppingCart__product"
+          >{{item.product.name}}</div>
+        </div>
+      </div>
+      <div class="navbarAccount">
+        <a routerLink="/login">Login</a>
+        <span class="separator"></span>
+        <a routerLink="/register">Create Account</a>
+      </div>
+    </div>
+  </div>
+  <div class="navbarBottom">
+    <a *ngFor="let category of categories"
+       [routerLink]="['/category/', category.slug]"
+       class="category"
+       [class.active]="category.focused">
+      <div class="categoryContentOverlay" *ngIf="category.focused" [@inOutAnimation]=""></div>
+      <span (mouseenter)="openCategory(category.id)"
+            (mouseleave)="closeCategory(category.id)">
+        <div class="categoryButtonWrapper">
+          <div class="leftBorderRadius" *ngIf="category.focused" [@inOutAnimation]=""></div>
+          <div class="categoryButton">
+            <div class="categoryIcon">
+              <img [src]="'/assets/icons/' + category.icon" alt="">
+            </div>
+            <div class="categoryName">
+              {{category.name}} ({{category.productsAmount}})
+            </div>
+          </div>
+          <div class="rightBorderRadius" *ngIf="category.focused" [@inOutAnimation]=""></div>
+        </div>
+
+        <div class="categoryContent" *ngIf="category.focused" [@inOutAnimation]="">
+          kontent
+        </div>
+      </span>
+    </a>
+  </div>
+</nav>
+
+<app-dialog [(show)]="currencyDialogVisibility" class="currencyChangerDialog">
+  <form class="currencySettings">
+    <div>Select Currency</div>
+    <form-select [options]="[{name: 'USD', value: 'usd'}, {name: 'EUR', value: 'eur'}]" value="usd"></form-select>
+  </form>
+  <app-button color="green" (click)="closeCurrencyDialog()">Save</app-button>
+  <app-button color="red" (click)="closeCurrencyDialog()">Cancel</app-button>
+</app-dialog>

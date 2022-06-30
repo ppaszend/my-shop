@@ -1,6 +1,6 @@
-<div class="navigationDrawerOverlay" [class.hidden]="!visibility" (click)="close()"></div>
+<div class="navigationDrawerOverlay" *ngIf="visibility" (click)="close()" [@inOutAnimation]=""></div>
 
-<div class="navigationDrawer" [class.hidden]="!visibility">
+<div class="navigationDrawer" *ngIf="visibility" [@slideLeftAnimation]="">
   <div class="header">
     <div class="headerTitle">Company name</div>
     <div class="headerButtons">

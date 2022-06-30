@@ -48,6 +48,7 @@
         .buttonRemove {
           display: flex;
           justify-content: center;
+          cursor: pointer;
           align-items: center;
           background: var(--color-red);
           border: none;
