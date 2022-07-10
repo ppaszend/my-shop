@@ -5,20 +5,26 @@ import {ShoppingCartComponent} from "./pages/shopping-cart/shopping-cart.compone
 import {CategoryComponent} from "./pages/category/category.component";
 import {ProductComponent} from "./pages/product/product.component";
 import {CreateOrderComponent} from "./pages/create-order/create-order.component";
+import {RegisterComponent} from "./pages/register/register.component";
+import {LoginComponent} from "./pages/login/login.component";
+import {SettingsComponent} from "./pages/account/settings/settings.component";
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'shopping-cart', component: ShoppingCartComponent },
-  { path: 'category/:slug', component: CategoryComponent },
-  { path: 'product/:slug', component: ProductComponent },
-  { path: 'create-order', component: CreateOrderComponent },
+  { path: '',                 component: HomeComponent,         data: {animation: 'fadeAnimation' } },
+  { path: 'shopping-cart',    component: ShoppingCartComponent, data: {animation: 'fadeAnimation' } },
+  { path: 'category/:slug',   component: CategoryComponent,     data: {animation: 'fadeAnimation' } },
+  { path: 'product/:slug',    component: ProductComponent,      data: {animation: 'fadeAnimation' } },
+  { path: 'create-order',     component: CreateOrderComponent,  data: {animation: 'fadeAnimation' } },
+  { path: 'register',         component: RegisterComponent,     data: {animation: 'fadeAnimation' } },
+  { path: 'login',            component: LoginComponent,        data: {animation: 'fadeAnimation' } },
+  { path: 'account/settings', component: SettingsComponent,     data: {animation: 'fadeAnimation' } },
 
   { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, {scrollPositionRestoration: "enabled"}),
+    RouterModule.forRoot(routes, { scrollPositionRestoration: "enabled", initialNavigation: 'enabledBlocking' }),
   ],
   exports: [RouterModule]
 })

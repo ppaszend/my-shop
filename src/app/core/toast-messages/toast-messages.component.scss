@@ -1,0 +1,28 @@
+.toastMessagesContainer {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 10000;
+  max-width: 300px;
+  width: 100%;
+
+  .toastMessage {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-white);
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0 0 4px var(--color-green);
+    width: 100%;
+
+    .title {
+      font-weight: 500;
+      font-size: 1em;
+    }
+
+    .message {
+      font-weight: 400;
+      font-size: 0.875em;
+    }
+  }
+}

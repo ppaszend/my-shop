@@ -1,0 +1,23 @@
+.formContainer {
+  border-radius: 16px;
+  margin-bottom: 30px;
+  background: var(--color-white);
+  padding: 10px 20px;
+}
+
+.formSectionName {
+  font-size: 1em;
+  color: var(--color-gray);
+  margin: 10px 0;
+}
+
+.formErrorMessage {
+  display: flex;
+  color: var(--color-red);
+  font-weight: 500;
+  padding: 6px 0;
+}
+
+.errorDialogContent {
+  margin-bottom: 30px;
+}

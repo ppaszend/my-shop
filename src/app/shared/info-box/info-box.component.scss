@@ -1,0 +1,31 @@
+.infoBoxWrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: transparentize(#000000, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: 6000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .infoBox {
+    padding: 24px;
+    width: calc(100% - 32px);
+    background: var(--color-white);
+    border-radius: 16px;
+    z-index: 7000;
+
+    .infoBoxTitle {
+      font-size: 1.2em;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    .infoBoxContent {
+      margin-bottom: 16px;
+    }
+  }
+}

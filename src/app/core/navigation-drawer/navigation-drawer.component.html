@@ -2,7 +2,7 @@
 
 <div class="navigationDrawer" *ngIf="visibility" [@slideLeftAnimation]="">
   <div class="header">
-    <div class="headerTitle">Company name</div>
+    <div class="headerTitle">Categories</div>
     <div class="headerButtons">
       <button class="button" (click)="close()">
         <mat-icon>close</mat-icon>
@@ -10,4 +10,15 @@
     </div>
   </div>
   <app-categories-list [expandable]="false"></app-categories-list>
+
+  <div class="footer">
+    <ng-container *ngIf="isLogged">
+      <a [routerLink]="['account', 'settings']" class="navigationDrawerLink">My account</a>
+      <button (click)="logout()" class="navigationDrawerLink">Logout</button>
+    </ng-container>
+    <ng-container *ngIf="!isLogged">
+      <a [routerLink]="['login']" class="navigationDrawerLink">Login</a>
+      <a [routerLink]="['register']" class="navigationDrawerLink">Create account</a>
+    </ng-container>
+  </div>
 </div>

@@ -10,6 +10,8 @@ export class ButtonComponent implements OnInit {
   @Input() icon: string|undefined;
   @Input() color: "green"|"blue"|"gray"|"red" = "blue";
   @Input() styles: object = {};
+  @Input() loading: boolean = false;
+  @Input() disabled: boolean = false;
 
   constructor() { }
 

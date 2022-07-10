@@ -1,0 +1,31 @@
+<h2 class="formSectionName">Create account</h2>
+<forms-form [formGroup]="registerForm"
+            [buttonLoading]="sendingInProgress"
+            [errorMessage]="errorMessage"
+            submitButtonLabel="Create account"
+            (submit)="sendForm()"
+>
+  <form-text-input formControlName="email"
+                   label="E-mail"
+                   [form]="registerForm"
+  ></form-text-input>
+  <form-text-input formControlName="firstName"
+                   label="firstName"
+                   [form]="registerForm"
+  ></form-text-input>
+  <form-text-input formControlName="lastName"
+                   label="lastName"
+                   [form]="registerForm"
+  ></form-text-input>
+  <form-text-input formControlName="password"
+                   label="password"
+                   type="password"
+                   [form]="registerForm"
+  ></form-text-input>
+</forms-form>
+<app-info-box title="Account created"
+              content="Your account has been created successfully, now You must activate it with E-mail"
+              buttonLabel="Go to login page"
+              (buttonClick)="goToLoginPage()"
+              *ngIf="accountCreated"
+></app-info-box>

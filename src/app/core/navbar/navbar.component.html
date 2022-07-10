@@ -41,15 +41,35 @@
           Shopping Cart (€33.99)
         </a>
         <div class="activeContent" [@shoppingCartFocusActive]="shoppingCartActive">
-          <div *ngFor="let item of shoppingCartProducts"
-               class="navbarShoppingCart__product"
-          >{{item.product.name}}</div>
+          <a *ngFor="let item of shoppingCartProducts"
+             class="navbarShoppingCart__product"
+             [routerLink]="'/product/' + item.product.slug"
+          >
+            <div class="navbarShoppingCart__product__left">
+              <img [src]="item.product.photo" alt="">
+            </div>
+            <div class="navbarShoppingCart__product__right">
+              <div class="navbarShoppingCart__product__name">{{item.product.name}}</div>
+              <div class="navbarShoppingCart__product__author">{{item.product.author}}</div>
+              <div class="navbarShoppingCart__product__price">{{item.product.price}} zł</div>
+            </div>
+          </a>
+          <div *ngIf="shoppingCartProducts.length === 0" class="navbarShoppingCart__empty">
+            No products in cart
+          </div>
         </div>
       </div>
       <div class="navbarAccount">
-        <a routerLink="/login">Login</a>
-        <span class="separator"></span>
-        <a routerLink="/register">Create Account</a>
+        <ng-container *ngIf="!isLogged">
+          <a routerLink="/login">Login</a>
+          <span class="separator"></span>
+          <a routerLink="/register">Create Account</a>
+        </ng-container>
+        <ng-container *ngIf="isLogged">
+          <a routerLink="/account/settings">My account</a>
+          <span class="separator"></span>
+          <button (click)="user.logout()">Logout</button>
+        </ng-container>
       </div>
     </div>
   </div>

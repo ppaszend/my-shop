@@ -70,7 +70,6 @@ export class CreateOrderComponent implements OnInit {
   }
 
   sendForm() {
-    console.log(this.orderForm);
     this.error = true;
   }
 

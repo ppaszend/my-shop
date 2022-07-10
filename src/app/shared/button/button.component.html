@@ -4,7 +4,12 @@
         [class.gray]="color === 'gray'"
         [class.red]="color === 'red'"
         [style]="styles"
+        [disabled]="disabled"
 >
-  <ng-content></ng-content>
+  <ng-container *ngIf="!loading">
+    <ng-content></ng-content>
+  </ng-container>
+
+  <icon-spinner *ngIf="loading"></icon-spinner>
   <mat-icon *ngIf="icon">{{icon}}</mat-icon>
 </button>

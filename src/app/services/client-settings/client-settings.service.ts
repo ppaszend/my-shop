@@ -15,8 +15,6 @@ export class ClientSettingsService {
   private settings = new BehaviorSubject({
     productsListStyle: "list"
   })
-  private _settings: object = {
-  }
 
   constructor() { }
 

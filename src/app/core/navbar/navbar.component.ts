@@ -1,9 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { NavigationDrawerService } from "../../services/navigation-drawer.service";
-import {ShoppingCartService} from "../../services/shopping-cart.service";
+import { NavigationDrawerService } from "../../services/navigation-drawer/navigation-drawer.service";
+import {ShoppingCartService} from "../../services/shopping-cart/shopping-cart.service";
 import {Category} from "../../models/category";
 import {animate, AUTO_STYLE, state, style, transition, trigger} from "@angular/animations";
 import {ShoppingCartProduct} from "../../models/shopping-cart-product";
+import {UserService} from "../../services/user/user.service";
 
 @Component({
   selector: 'app-navbar',
@@ -45,12 +46,12 @@ import {ShoppingCartProduct} from "../../models/shopping-cart-product";
         transition(
           'false => true',
           [
-            animate('300ms linear')
+            animate('100ms linear')
           ]),
         transition(
           'true => false',
           [
-            animate('300ms linear')
+            animate('100ms linear')
           ])
       ]
     ),
@@ -59,14 +60,12 @@ import {ShoppingCartProduct} from "../../models/shopping-cart-product";
       [
         state(
           'true', style({
-            // opacity: 1,
             'box-shadow': '0 0 4px #000000',
             height: AUTO_STYLE
           })
         ),
         state(
           'false', style({
-            // opacity: 0,
             'box-shadow': '0 0 4px #ffffff',
             height: 0,
             padding: '0'
@@ -75,12 +74,12 @@ import {ShoppingCartProduct} from "../../models/shopping-cart-product";
         transition(
           'false => true',
           [
-            animate('300ms linear')
+            animate('100ms linear')
           ]),
         transition(
           'true => false',
           [
-            animate('300ms linear')
+            animate('100ms linear')
           ])
       ]
     )
@@ -94,18 +93,27 @@ export class NavbarComponent implements OnInit {
   get categories(): Category[] {
     return this._categories;
   }
+  isLogged = false;
 
   shoppingCartProducts: ShoppingCartProduct[] = [];
   productInCartAmount: number = 0;
-  isMobile: boolean = window.innerWidth < 992;
+  isMobile: boolean = false;
   currencyDialogVisibility: boolean = false;
   shoppingCartActive: boolean = false;
 
   constructor(private navigationDrawerService: NavigationDrawerService,
-              private shoppingCartService: ShoppingCartService) {
-    window.addEventListener('resize', () => {
+              private shoppingCartService: ShoppingCartService,
+              public user: UserService) {
+    if (window) {
       this.isMobile = window.innerWidth < 992;
-    });
+      window.addEventListener("resize", () => {
+        this.isMobile = window.innerWidth < 992;
+      });
+    }
+
+    this.user.getIsLoggedObserver().subscribe((isLogged) => {
+      this.isLogged = isLogged;
+    })
   }
 
   ngOnInit(): void {

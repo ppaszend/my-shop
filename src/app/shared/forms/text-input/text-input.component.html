@@ -1,8 +1,8 @@
 <label class="input">
   <span *ngIf="label !== ''" class="label">{{label}}</span>
-  <input [(ngModel)]="value">
-  <div class="indicator">
-    <mat-icon *ngIf="state === 'valid'">done</mat-icon>
-    <mat-icon *ngIf="state === 'invalid'">priority_high</mat-icon>
+  <input [(ngModel)]="value" (input)="onTouched()" [type]="type">
+  <div class="indicator" *ngIf="form && formControlName && form.get(formControlName)?.touched">
+    <mat-icon *ngIf="form.get(formControlName)?.status === 'VALID'">done</mat-icon>
+    <mat-icon *ngIf="form.get(formControlName)?.status === 'INVALID'">priority_high</mat-icon>
   </div>
 </label>

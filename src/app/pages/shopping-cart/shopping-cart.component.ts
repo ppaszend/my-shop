@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ShoppingCartService} from "../../services/shopping-cart.service";
+import {ShoppingCartService} from "../../services/shopping-cart/shopping-cart.service";
 import {ShoppingCartProduct} from "../../models/shopping-cart-product";
 
 @Component({
@@ -13,7 +13,6 @@ export class ShoppingCartComponent implements OnInit {
   constructor(private shoppingCartService: ShoppingCartService) { }
 
   removeProduct(productId: number): void {
-    console.log('rem')
     this.shoppingCartService.removeProduct(productId);
   }
 

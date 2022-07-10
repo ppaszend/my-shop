@@ -1,0 +1,18 @@
+<h2 class="formSectionName">Account settings</h2>
+<forms-form *ngIf="userSettingsForm" [formGroup]="userSettingsForm">
+  <form-text-input formControlName="email"
+                   label="E-mail"
+                   [form]="userSettingsForm"
+  ></form-text-input>
+  <form-text-input formControlName="firstName"
+                   label="First name"
+                   [form]="userSettingsForm"></form-text-input>
+  <form-text-input formControlName="lastName"
+                   label="Last name"
+                   [form]="userSettingsForm"></form-text-input>
+  <app-button
+    [color]="userSettingsForm.status === 'VALID' && userSettingsForm.touched ? 'green' : 'gray'"
+    [styles]="{height: '48px'}"
+    (click)="saveUserData()"
+  >Save data</app-button>
+</forms-form>

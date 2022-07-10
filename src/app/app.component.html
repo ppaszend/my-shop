@@ -1,6 +1,8 @@
 <app-navbar [categories]="categories"></app-navbar>
 <app-navigation-drawer></app-navigation-drawer>
 
-<div class="content" role="main">
-  <router-outlet></router-outlet>
-</div>
+<main class="content" role="main" [@fadeAnimation]="outlet.isActivated ? outlet.activatedRoute : ''">
+  <router-outlet #outlet="outlet"></router-outlet>
+</main>
+
+<app-toast-messages></app-toast-messages>

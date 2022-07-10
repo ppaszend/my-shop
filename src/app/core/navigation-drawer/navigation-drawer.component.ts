@@ -1,7 +1,8 @@
 import {Component,  OnInit } from '@angular/core';
-import {NavigationDrawerService} from "../../services/navigation-drawer.service";
+import {NavigationDrawerService} from "../../services/navigation-drawer/navigation-drawer.service";
 import {Router} from "@angular/router";
 import {animate, style, transition, trigger} from "@angular/animations";
+import {UserService} from "../../services/user/user.service";
 
 @Component({
   selector: 'app-navigation-drawer',
@@ -50,11 +51,18 @@ import {animate, style, transition, trigger} from "@angular/animations";
 })
 export class NavigationDrawerComponent implements OnInit {
   visibility = false;
+  isLogged = false;
 
-  constructor(private navigationDrawerService: NavigationDrawerService, private router: Router) {
+  constructor(private navigationDrawerService: NavigationDrawerService,
+              private user: UserService,
+              private router: Router,
+  ) {
     this.router.events.subscribe(() => {
       this.close();
-    })
+    });
+    this.user.getIsLoggedObserver().subscribe((isLogged) => {
+      this.isLogged = isLogged;
+    });
   }
 
   ngOnInit(): void {
@@ -62,6 +70,10 @@ export class NavigationDrawerComponent implements OnInit {
       .subscribe(visibility => {
         this.visibility = visibility;
       });
+  }
+
+  async logout() {
+    await this.user.logout();
   }
 
   close() {

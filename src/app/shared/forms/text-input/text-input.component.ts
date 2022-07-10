@@ -1,5 +1,5 @@
 import {Component, forwardRef, Input} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {ControlValueAccessor, FormGroup, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 @Component({
   selector: 'form-text-input',
@@ -14,6 +14,9 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 export class TextInputComponent implements ControlValueAccessor {
   @Input() label: string = '';
   @Input() touched: boolean = false;
+  @Input() form: FormGroup|undefined;
+  @Input() formControlName: string|undefined;
+  @Input() type: 'text'|'password'|'email' = 'text';
 
   private _value: string = '';
 
@@ -27,8 +30,6 @@ export class TextInputComponent implements ControlValueAccessor {
     }
   }
 
-  state: string = '';
-
   constructor() { }
 
   onChange = (_: string) => {}
@@ -41,10 +42,6 @@ export class TextInputComponent implements ControlValueAccessor {
     this.onChange = fn;
   }
   registerOnTouched(fn: any) {
-    console.log(this.touched)
-    if (this.touched) {
-      this.state = this.validate() ? "valid" : "invalid"
-    }
     this.onTouched = fn;
   }
   setDisabledState?(isDisabled: boolean): void {

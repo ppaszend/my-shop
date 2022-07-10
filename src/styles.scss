@@ -15,7 +15,7 @@ html, body {
 }
 
 body {
-  margin: 0;
+  margin: 0 0 60px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background: #EEEEEE;
 }
@@ -24,8 +24,17 @@ body {
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
+  font-size: 1em;
 }
 
 // colors
 //$color-white: #FFFFFF;
 
+
+
+
+router-outlet ~ * {
+  position: absolute;
+  width: calc(100% - 40px);
+  height: 100%;
+}

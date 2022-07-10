@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
-import {Product} from "../models/product";
-import {ShoppingCartProduct} from "../models/shopping-cart-product";
+import {Product} from "../../models/product";
+import {ShoppingCartProduct} from "../../models/shopping-cart-product";
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +43,6 @@ export class ShoppingCartService {
   }
 
   removeProduct(productId: number): void {
-    console.log(productId);
     this.products.next(this.products.getValue().filter(item => productId !== item.id));
     this.saveProductsInLocalStorage();
   }
@@ -68,15 +67,17 @@ export class ShoppingCartService {
   }
 
   saveProductsInLocalStorage(): void {
-    window.localStorage.setItem("shoppingCart", JSON.stringify({
-      products: this.products.getValue()
-    }))
+    // todo: dostosować do ssr
+    // window.localStorage.setItem("shoppingCart", JSON.stringify({
+    //   products: this.products.getValue()
+    // }))
   }
 
   loadProductsFromLocalStorage(): void {
-    if (window.localStorage.getItem("shoppingCart")) {
-      let json: string = window.localStorage.getItem("shoppingCart") || "";
-      this.products.next(JSON.parse(json).products);
-    }
+    // todo: dostosować do ssr
+    // if (window.localStorage.getItem("shoppingCart")) {
+    //   let json: string = window.localStorage.getItem("shoppingCart") || "";
+    //   this.products.next(JSON.parse(json).products);
+    // }
   }
 }

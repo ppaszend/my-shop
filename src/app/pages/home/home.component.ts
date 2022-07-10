@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {CategoriesService} from "../../services/categories.service";
-import {BestsellersService} from "../../services/bestsellers.service";
+import {CategoriesService} from "../../services/categories/categories.service";
+import {BestsellersService} from "../../services/bestsellers/bestsellers.service";
 import {Category} from "../../models/category";
 import {Product} from "../../models/product";
 
@@ -18,9 +18,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoriesService.getCategories()
-      .subscribe(categories => this.categories = categories);
+      .subscribe((categories) => {
+        this.categories = categories
+      });
     this.bestsellersService.getObserver()
-      .subscribe(products => this.bestsellers = products);
+      .subscribe((products) => {
+        this.bestsellers = products
+      });
   }
 
 }

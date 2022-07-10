@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import {Product} from "../../models/product";
+import {CategoryService} from "../../services/category/category.service";
 
 @Component({
   selector: 'app-category',
@@ -10,32 +11,19 @@ import {Product} from "../../models/product";
 export class CategoryComponent implements OnInit {
   @Input() viewMode: String = "grid";
 
-  products: Product[] = [
-    {
-      "id": 0,
-      "name": "Lorem ipsum",
-      "slug": "lorem-ipsum",
-      "author": "Adam Mickiewicz",
-      "price": 39.99,
-      "categoryId": 2,
-      "photo": "/assets/photos/na-skraju-strefy.png"
-    },
-    {
-      "id": 0,
-      "name": "Lorem ipsum",
-      "slug": "lorem-ipsum",
-      "author": "Adam Mickiewicz",
-      "price": 39.99,
-      "categoryId": 2,
-      "photo": "/assets/photos/na-skraju-strefy.png"
-    }
-  ];
+  products: Product[] = [];
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private _route: ActivatedRoute,
+              private categoryService: CategoryService) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-    })
+    this._route.params.subscribe((params) => {
+      this.categoryService
+        .getCategory(params['slug'] || "")
+        .subscribe((category) => {
+          this.products = category.products;
+        });
+    });
   }
 
 }

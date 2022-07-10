@@ -1,0 +1,13 @@
+<form *ngIf="formGroup" [formGroup]="formGroup" class="formContainer">
+  <div *ngIf="errorMessage.length > 0"
+       class="formErrorMessage">{{errorMessage}}</div>
+  <ng-content></ng-content>
+  <app-button [color]="formGroup.status === 'VALID' ? 'green' : 'gray'"
+              [styles]="{height: '48px'}"
+              [loading]="buttonLoading"
+              [disabled]="formGroup.status !== 'VALID'"
+              (click)="handleSubmit()"
+  >
+    <ng-container>{{submitButtonLabel}}</ng-container>
+  </app-button>
+</form>

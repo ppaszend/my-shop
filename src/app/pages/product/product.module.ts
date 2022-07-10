@@ -4,6 +4,7 @@ import {ProductComponent} from "./product.component";
 import {ShowAsPPipe} from "../../pipes/show-as-p.pipe";
 import {SharedModule} from "../../shared/shared.module";
 import {MatIconModule} from "@angular/material/icon";
+import {ProductService} from "../../services/product/product.service";
 
 
 
@@ -19,6 +20,9 @@ import {MatIconModule} from "@angular/material/icon";
   ],
   exports: [
     ProductComponent
+  ],
+  providers: [
+    ProductService
   ]
 })
 export class ProductModule { }

@@ -1,0 +1,18 @@
+<h2 class="formSectionName">Login to your account</h2>
+
+<forms-form [formGroup]="loginForm"
+            [buttonLoading]="sendingInProgress"
+            submitButtonLabel="Login"
+            (submit)="sendForm()"
+            [errorMessage]="errorMessage"
+>
+  <form-text-input formControlName="email"
+                   label="E-mail"
+                   [form]="loginForm"
+  ></form-text-input>
+  <form-text-input formControlName="password"
+                   label="Password"
+                   type="password"
+                   [form]="loginForm"
+  ></form-text-input>
+</forms-form>
